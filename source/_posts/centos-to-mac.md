@@ -1,7 +1,7 @@
 ---
 title: centos to mac
 date: 2017-07-28 09:12:04
-tags:
+tags: mac
 ---
 
 ## centos 转 mac
