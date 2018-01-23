@@ -281,9 +281,10 @@ mathjax:
   per_page: false
   cdn: //cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML
 
-
+swift_search:
+enable: true
 # Swiftype Search API Key
-#swiftype_key:
+swiftype_key: 4aPH9y_9pqP39YPP2saE
 
 # Baidu Analytics ID
 #baidu_analytics:

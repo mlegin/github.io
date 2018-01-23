@@ -86,6 +86,39 @@ hexo d
 
 ### 保存md至github
 ```
-#前面操作略过
+#切换到hexo分支
+git checkout -b hexo
 git push origin hexo
 ```
+
+## hexo添加站内搜索？
+使用swiftype，具体参考教程
+
+http://www.arao.me/2015/hexo-next-theme-optimize-base/
+
+https://www.cnblogs.com/penglei-it/p/hexo_service.html
+
+## 碰到的问题
+### 问题1 怎么让阿里云域名绑定github.io
+在github中master目录下创建个CNAME文件，里面填上你的域名（无http://）
+
+### 问题2 hexo d后CNAME消失？
+安装插件
+
+```
+$ npm install hexo-generator-cname --save
+```
+然后在_config.yml中修改两个地方
+
+```
+Plugins:
+- hexo-generator-cname
+
+#第二个地方
+url: http://www.chengxinsong.cn
+root: /
+permalink: :year/:month/:day/:title/
+permalink_defaults:
+
+```
+

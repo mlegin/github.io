@@ -5,14 +5,14 @@
 # Site
 title: mlegin's blog
 subtitle: 兴趣使然
-description: mlegin写字的地方
+description: 不要进行重复的学习
 author: mlegin
 language: zh-Hans
 timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://yoursite.com
+url: http://blog.mlegin.top
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -71,6 +71,8 @@ pagination_dir: page
 
 # Extensions
 ## Plugins: https://hexo.io/plugins/
+Plugins:
+- hexo-generator-cname
 ## Themes: https://hexo.io/themes/
 theme: next
 
