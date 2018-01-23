@@ -95,7 +95,7 @@
 <meta property="og:site_name" content="mlegin&#39;s blog">
 <meta property="og:description" content="hexo 多电脑同步问题问题要迁移主要开发环境，hexo文件得想个优雅的方法挪过来，并且原来就有hexo文件备份的问题，如果source文件夹下的md文件丢失，那可没处哭去，索性研究一下，把这两个问题都解决。 思路参考知乎上各位大神的主要思路，现解决方法如下 在git上部署master和hexo两个分支，master主要用于站点deploy，hexo用于存放md，theme等主要文件 最终测试了下">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-23T05:14:42.000Z">
+<meta property="og:updated_time" content="2018-01-23T06:07:47.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo 多电脑同步">
 <meta name="twitter:description" content="hexo 多电脑同步问题问题要迁移主要开发环境，hexo文件得想个优雅的方法挪过来，并且原来就有hexo文件备份的问题，如果source文件夹下的md文件丢失，那可没处哭去，索性研究一下，把这两个问题都解决。 思路参考知乎上各位大神的主要思路，现解决方法如下 在git上部署master和hexo两个分支，master主要用于站点deploy，hexo用于存放md，theme等主要文件 最终测试了下">
@@ -224,9 +224,39 @@
       
 
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'https://app.swiftype.com/engines/blogsearch/overview','2.0.0');
+</script>
+
+
+
+    </div>
   
 </nav>
 
@@ -328,7 +358,7 @@
 <p>在git上部署master和hexo两个分支，master主要用于站点deploy，hexo用于存放md，theme等主要文件</p>
 <p>最终测试了下，效果良好，在本人mac上成功迁移</p>
 <h3 id="hexo常用操作"><a href="#hexo常用操作" class="headerlink" title="hexo常用操作"></a>hexo常用操作</h3><p>复述下hexo操作</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">hexo g 			#将markdown文件生成为网页文件</div><div class="line">hexo server 	#本地预览生成的网页</div><div class="line">hexo d 			#发布到配置的地方（比如配置到github.io）</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">#将markdown文件生成为网页文件</div><div class="line">hexo g 	</div><div class="line">#本地预览生成的网页</div><div class="line">hexo server 				</div><div class="line">#发布到配置的地方（比如配置到github.io）</div><div class="line">hexo d</div></pre></td></tr></table></figure>
 <h3 id="git各分支结构"><a href="#git各分支结构" class="headerlink" title="git各分支结构"></a>git各分支结构</h3><p>master 这个分支存放发布后的网页文件，内容来源于hexo d操作，如何让hexo d到github上请参见其他网络教程</p>
 <p>hexo 这个分支存放本地hexo目录几乎所有文件，包括source，package.json等，来源于git push origin hexo</p>
 <h2 id="初始hexo及git环境"><a href="#初始hexo及git环境" class="headerlink" title="初始hexo及git环境"></a>初始hexo及git环境</h2><h3 id="方法1（不建议）"><a href="#方法1（不建议）" class="headerlink" title="方法1（不建议）"></a>方法1（不建议）</h3><p>旧电脑中把hexo文件push到git不再赘述，在新电脑上操作如下</p>
@@ -339,7 +369,7 @@
 <h3 id="方法2"><a href="#方法2" class="headerlink" title="方法2"></a>方法2</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">mkdir myblog</div><div class="line">cd myblog</div><div class="line">git init</div><div class="line">git remote add origin &lt;你的github地址&gt;</div><div class="line">git pull origin hexo </div><div class="line">npm i hexo --save</div><div class="line">npm install</div></pre></td></tr></table></figure>
 <p>这样不会因为配置文件冲突而报错</p>
 <h2 id="常用操作"><a href="#常用操作" class="headerlink" title="常用操作"></a>常用操作</h2><h3 id="发布文章"><a href="#发布文章" class="headerlink" title="发布文章"></a>发布文章</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo d</div></pre></td></tr></table></figure>
-<h3 id="保存md至github"><a href="#保存md至github" class="headerlink" title="保存md至github"></a>保存md至github</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">#前面操作略过</div><div class="line">git push origin hexo</div></pre></td></tr></table></figure>
+<h3 id="保存md至github"><a href="#保存md至github" class="headerlink" title="保存md至github"></a>保存md至github</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">#切换到hexo分支</div><div class="line">git checkout -b hexo</div><div class="line">git push origin hexo</div></pre></td></tr></table></figure>
       
     </div>
 
