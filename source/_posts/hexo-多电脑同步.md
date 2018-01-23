@@ -8,7 +8,7 @@ tags: hexo
 
 ## 问题
 
-要迁移主要开发环境，hexo文件得想个优雅的方法挪过来，并且原来就有hexo文件的备份问题也浮出水面，如果source文件夹下的md文件丢失，那可没处哭去，索性研究一下，把这两个问题都解决。
+要迁移主要开发环境，hexo文件得想个优雅的方法挪过来，并且原来就有hexo文件备份的问题，如果source文件夹下的md文件丢失，那可没处哭去，索性研究一下，把这两个问题都解决。
 
 ## 思路
 
@@ -18,12 +18,30 @@ tags: hexo
 
 最终测试了下，效果良好，在本人mac上成功迁移
 
-## 操作
+### hexo常用操作
 
-在git上master分支存放deploy，hexo分支存放目录下git的push提交
+复述下hexo操作
+
+```
+#将markdown文件生成为网页文件
+hexo g 	
+#本地预览生成的网页
+hexo server 				
+#发布到配置的地方（比如配置到github.io）
+hexo d 	
+```
+### git各分支结构
+
+master 这个分支存放发布后的网页文件，内容来源于hexo d操作，如何让hexo d到github上请参见其他网络教程
+
+hexo 这个分支存放本地hexo目录几乎所有文件，包括source，package.json等，来源于git push origin hexo
+
+## 初始hexo及git环境
+
+### 方法1（不建议）
 
 旧电脑中把hexo文件push到git不再赘述，在新电脑上操作如下
-
+			
 ```
 hexo init myblog
 cd myblog
@@ -41,4 +59,33 @@ hexo d
 
 ```
 npm install hexo-deployer-git --save
+```
+注意：以上操作并不好用，因为hexo会更新，此方法会造成很多merge，很麻烦
+
+### 方法2
+
+```
+mkdir myblog
+cd myblog
+git init
+git remote add origin <你的github地址>
+git pull origin hexo 
+npm i hexo --save
+npm install 
+
+```
+	
+这样不会因为配置文件冲突而报错
+
+## 常用操作
+
+### 发布文章
+```
+hexo d
+```
+
+### 保存md至github
+```
+#前面操作略过
+git push origin hexo
 ```
